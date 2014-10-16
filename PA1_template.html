@@ -142,8 +142,7 @@ assign_part &lt;- function(date) {
 }
 activity2$weekpart &lt;- sapply(activity2$date,assign_part)</code></pre>
 <p>Make a panel plot containing a time series plot using simulated data. There does indeed appear to be differences in activity between weekday and weekend.</p>
-<pre class="r"><code>data_weekend &lt;- ddply(activity2[activity2$weekpart==&quot;Weekend&quot;,], ~date, summarize, avg = mean(steps, na.rm = TRUE))
-totals &lt;- ddply(activity2,.(weekpart,interval), summarize, avg = mean(steps, na.rm= TRUE))
+<pre class="r"><code>totals &lt;- ddply(activity2,.(weekpart,interval), summarize, avg = mean(steps, na.rm= TRUE))
 
 par(mfrow = c(2,1))
 plot(x = totals[totals$weekpart==&quot;Weekday&quot;,]$interval, 

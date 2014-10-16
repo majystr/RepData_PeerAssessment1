@@ -108,7 +108,6 @@ activity2$weekpart <- sapply(activity2$date,assign_part)
 ```
 Make a panel plot containing a time series plot using simulated data. There does indeed appear to be differences in activity between weekday and weekend.
 ```{r}
-data_weekend <- ddply(activity2[activity2$weekpart=="Weekend",], ~date, summarize, avg = mean(steps, na.rm = TRUE))
 totals <- ddply(activity2,.(weekpart,interval), summarize, avg = mean(steps, na.rm= TRUE))
 
 par(mfrow = c(2,1))
